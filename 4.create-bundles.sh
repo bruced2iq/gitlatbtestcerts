@@ -20,7 +20,7 @@ echo ""
 echo ""
 # if there were an intermediate, it would be concatonated before the Root CA
 cat \
-  "certs/ca/my-root-ca.crt.pem" \
+  "certs/ca/${FQDN}.crt.pem" \
   > "certs/servers/${FQDN}/chain.pem"
 
 
@@ -40,7 +40,7 @@ echo ""
 echo ""
 cat \
   "certs/servers/${FQDN}/cert.pem" \
-  "certs/ca/my-root-ca.crt.pem" \
+  "certs/ca/${FQDN}.crt.pem" \
   > "certs/servers/${FQDN}/fullchain.pem"
 
 echo "All Done"

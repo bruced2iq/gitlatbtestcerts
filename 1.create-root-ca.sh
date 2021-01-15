@@ -1,11 +1,13 @@
 #!/bin/bash
 
+FQDN="$1"
+
 # make directories to work from
 mkdir -p certs/ca
 
 # Create your very own Root Certificate Authority
 openssl genrsa \
-  -out certs/ca/my-root-ca.key.pem \
+  -out certs/ca/${FQDN}.key.pem \
   2048
 
 # Self-sign your Root Certificate Authority
@@ -14,7 +16,7 @@ openssl req \
   -x509 \
   -new \
   -nodes \
-  -key certs/ca/my-root-ca.key.pem \
+  -key certs/ca/${FQDN}.key.pem \
   -days 9131 \
-  -out certs/ca/my-root-ca.crt.pem \
-  -subj "/C=US/ST=Utah/L=Provo/O=ACME Signing Authority Inc/CN=gitlab.gitlabtesting.com"
+  -out certs/ca/${FQDN}.crt.pem \
+  -subj "/C=US/ST=Utah/L=Provo/O=ACME Signing Authority Inc/CN=${FQDN}"

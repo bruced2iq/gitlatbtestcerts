@@ -1,0 +1,13 @@
+{
+  "role_type": "jwt",
+  "policies": ["myproject-production"],
+  "token_explicit_max_ttl": 60,
+  "user_claim": "jwt",
+  "bound_claims_type": "glob",
+  "bound_claims": {
+    "project_id": "42",
+    "ref_protected": "true",
+    "ref_type": "tag",
+    "ref": "auto-deploy-*"
+  }
+}
