@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FQDN="$1"
+FQDN="sales-se.d2iq.cloud"
 
 # Sign the request from Server with your Root CA
 openssl x509 \
