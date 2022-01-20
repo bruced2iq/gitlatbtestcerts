@@ -7,13 +7,13 @@ FQDN="$1"
 mkdir -p certs/{servers,tmp}
 
 # Create Certificate for this domain,
-mkdir -p "certs/servers/${FQDN}"
+mkdir -p "certs/servers/sales-se.d2iq.cloud"
 openssl genrsa \
-  -out "certs/servers/${FQDN}/privkey.pem" \
+  -out "certs/servers/sales-se.d2iq.cloud/privkey.pem" \
   2048
 
 # Create the CSR
 openssl req -new \
-  -key "certs/servers/${FQDN}/privkey.pem" \
-  -out "certs/tmp/${FQDN}.csr.pem" \
-  -subj "/C=US/ST=Utah/L=Provo/O=ACME Service/CN=${FQDN}"
+  -key "certs/servers/sales-se.d2iq.cloud/privkey.pem" \
+  -out "certs/tmp/sales-se.d2iq.cloud.csr.pem" \
+  -subj "/C=US/ST=Utah/L=Provo/O=ACME Service/CN=sales-se.d2iq.cloud"
